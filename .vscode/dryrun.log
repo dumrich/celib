@@ -1,0 +1,12 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/chabi/Code/celib'
+clang -c -std=c17 -g -O2 -Wall -Wextra -I./src -o src/celib/asm.o src/celib/asm.c
+clang -c -std=c17 -g -O2 -Wall -Wextra -I./src -o src/celib/collections.o src/celib/collections.c
+clang -std=c17 -g -O2 -Wall -Wextra -I./src -shared -o libce.so src/celib/asm.o src/celib/collections.o
+cp libce.so /usr/lib/libce.so
+cp $
+mkdir /usr/include/celib
+cp src/celib/asm.h src/celib/collections.h /usr/include/celib
+cp src/celib.h /usr/include
+make: Leaving directory '/home/chabi/Code/celib'
+ 

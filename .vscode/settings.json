@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "linked_list.h": "c",
+        "stdarg.h": "c",
+        "stdio.h": "c",
+        "ncurses.h": "c"
+    }
+}
