@@ -28,16 +28,19 @@ void free_list(List* l) {
 
 Node* push_list(List* l, void* d) {
     if(l->head == NULL) {
-        l->head = l->tail = malloc(sizeof(Node));
+        l->head = malloc(sizeof(Node));
         l->head->next = l->head->prev = NULL;
+        l->head->data = d;
+        l->tail = l->head;
     } else {
         l->tail->next = malloc(sizeof(Node));
         l->tail->next->prev = l->tail;
         l->tail = l->tail->next;
+
+        l->tail->data = d;
+        l->tail->next = NULL;
     }
 
-    l->tail->data = d;
-    l->tail->next = NULL;
 
     l->length++;
 
@@ -74,12 +77,4 @@ void remove_node(Node* n) {
     n->prev->next = n->next;
     n->next->prev = n->prev;
     free(n);
-}
-
-void print_list(List* l, void (*print)(void*)) {
-    Node* n = l->head;
-    while(n != NULL) {
-        print(n->data);
-        printf("\n");
-    }
 }

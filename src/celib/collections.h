@@ -36,7 +36,7 @@ Node* list_get_node(List*, int);
 
 void remove_node(Node*);
 
-void print_list(List*, void (*print)(void*));
+void print_list(List*, void (*print)(void*)); /* TODO */
 
 /*
   How to iterate over list:

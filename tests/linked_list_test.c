@@ -2,8 +2,14 @@
 #include <celib.h>
 
 void print(void* v) {
-    int* i = (int*)v;
-    printf("%d", *i);
+    List* l = (List*)v;
+
+    Node* n = l->tail;
+    while(n != NULL) {
+        printf("%d\n", *(int*)n->data);
+        n = n->prev;
+    }    
+
 }
 
 int main() {
@@ -24,6 +30,6 @@ int main() {
     push_list(l, k);
     push_list(l, r);
 
-    print_list(l, print);
+    print(l);
 }
 

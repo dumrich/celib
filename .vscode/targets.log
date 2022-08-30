@@ -5,13 +5,14 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Wed Aug 24 09:48:37 2022
+# Make data base, printed on Thu Aug 25 13:54:22 2022
 
 # Variables
 
 # makefile (from 'Makefile', line 4)
-OBJ := src/celib/asm.o src/celib/collections.o
+OBJ := src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
 # environment
 GDK_BACKEND = x11
 # environment
@@ -19,7 +20,7 @@ LC_ALL = C
 # environment
 NO_AT_BRIDGE = 1
 # makefile (from 'Makefile', line 3)
-SRC :=  src/celib/asm.c src/celib/collections.c
+SRC :=  src/celib/alloc.c src/celib/asm.c src/celib/channel.c src/celib/collections.c src/celib/crypto.c src/celib/date.c src/celib/graph.c src/celib/hashmap.c src/celib/ipc.c src/celib/network.c src/celib/refcount.c src/celib/regex.c src/celib/simd.c src/celib/string.c src/celib/threadpool.c src/celib/tree.c src/celib/vector.c
 # environment
 STARSHIP_SESSION_KEY = 2686429895106172
 # environment
@@ -73,7 +74,6 @@ MFLAGS = -pqrR
 # default
 .SHELLFLAGS := -c
 # environment
- 
 WAYLAND_DISPLAY = wayland-1
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
@@ -108,7 +108,7 @@ SHELL = /bin/sh
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 6)
-HEADERS := src/celib.h src/celib/asm.h src/celib/collections.h
+HEADERS := src/celib.h src/celib/alloc.h src/celib/asm.h src/celib/channel.h src/celib/collections.h src/celib/crypto.h src/celib/date.h src/celib/graph.h src/celib/hashmap.h src/celib/ipc.h src/celib/network.h src/celib/refcount.h src/celib/regex.h src/celib/simd.h src/celib/string.h src/celib/threadpool.h src/celib/tree.h src/celib/vector.h
 # environment
 SHLVL = 1
 # environment
@@ -147,6 +147,7 @@ DISPLAY = :0
 USER = chabi
 # default
 MAKE_VERSION := 4.3
+ 
 # environment
 STARSHIP_SHELL = zsh
 # environment
@@ -184,9 +185,9 @@ SUFFIXES :=
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # makefile (from 'config.mk', line 6)
-CC = clang
+CC = gcc
 # variable set hash-table stats:
-# Load=87/1024=8%, Rehash=0, Collisions=11/130=8%
+# Load=87/1024=8%, Rehash=0, Collisions=11/131=8%
 
 # Pattern-specific Variable Values
 
@@ -195,10 +196,10 @@ CC = clang
 # Directories
 
 # src (device 66307, inode 5906953): 4 files, no impossibilities.
-# . (device 66307, inode 5906949): 10 files, no impossibilities.
-# src/celib (device 66307, inode 5906992): 6 files, no impossibilities.
+# . (device 66307, inode 5906949): 12 files, no impossibilities.
+# src/celib (device 66307, inode 5906992): 53 files, no impossibilities.
 
-# 20 files, no impossibilities in 3 directories.
+# 69 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -209,33 +210,206 @@ CC = clang
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
-# Not a target:
-Makefile:
+src/celib/threadpool.o: src/celib/threadpool.c
 #  Implicit rule search has been done.
-#  Last modified 2022-08-24 09:46:27.855323829
+#  Implicit/static pattern stem: 'src/celib/threadpool'
+#  Last modified 2022-08-25 09:19:18.21206477
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+src/celib/graph.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:01:31.834641448
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/regex.o: src/celib/regex.c
+ 
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/regex'
+#  Last modified 2022-08-25 09:19:18.064064766
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/hashmap.o: src/celib/hashmap.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/hashmap'
+#  Last modified 2022-08-25 09:19:17.86306476
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/tree.o: src/celib/tree.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/tree'
+#  Last modified 2022-08-25 09:19:18.262064772
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+src/celib/string.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:59:43.718638359
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-src/celib/collections.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 13:53:42.087985783
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/string.o: src/celib/string.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/string'
+#  Last modified 2022-08-25 09:19:18.164064769
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/network.o: src/celib/network.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/network'
+#  Last modified 2022-08-25 09:19:17.965064763
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/refcount.o: src/celib/refcount.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/refcount'
+#  Last modified 2022-08-25 09:19:18.014064765
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/graph.o: src/celib/graph.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/graph'
+ 
+#  Last modified 2022-08-25 09:19:17.812064759
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+src/celib/date.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:53:45.492469854
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/collections.o: src/celib/collections.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/collections'
+#  Last modified 2022-08-25 13:49:32.078879463
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+src/celib/collections.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 13:49:30.405879415
+#  File has been updated.
+#  Successfully updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 30):
+#  recipe to execute (from 'Makefile', line 29):
 	rm -rf ${BIN} ${OBJ} 
+
+# Not a target:
+src/celib/tree.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:57:06.23163386
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/hashmap.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:03:30.014456795
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/refcount.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:53:21.394469166
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/crypto.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:14:07.426273471
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/alloc.o: src/celib/alloc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/alloc'
+#  Last modified 2022-08-25 09:19:17.476064749
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
 
 linked: libce.so
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 26):
-	${CC} -lce tests/linked_list_test.c -o linked_list_test 
+#  recipe to execute (from 'Makefile', line 25):
+	${CC} -lce ${CFLAGS} tests/linked_list_test.c -o linked_list_test 
+
+# Not a target:
+src/celib/network.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:04:14.893458077
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/vector.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:51:44.125466387
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/channel.c:
+ 
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:55:29.140496827
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/date.o: src/celib/date.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/date'
+#  Last modified 2022-08-25 09:19:17.761064757
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
 
 # Not a target:
 .DEFAULT:
@@ -250,14 +424,32 @@ all: libce.so install
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
 
 # Not a target:
 config.mk:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-24 09:14:06.598029302
+#  Last modified 2022-08-25 13:53:18.094985098
 #  File has been updated.
 #  Successfully updated.
+
+src/celib/crypto.o: src/celib/crypto.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/crypto'
+#  Last modified 2022-08-25 09:19:17.713064756
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/ipc.o: src/celib/ipc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/ipc'
+#  Last modified 2022-08-25 09:19:17.917064762
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
 
 # Not a target:
 src/celib/asm.c:
@@ -266,40 +458,63 @@ src/celib/asm.c:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+src/celib/ipc.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:03:57.84945759
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/simd.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:11:55.588269705
+#  File has been updated.
+#  Successfully updated.
+
 src/celib/asm.o: src/celib/asm.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'src/celib/asm'
+#  Last modified 2022-08-25 09:19:17.526064751
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+src/celib/vector.o: src/celib/vector.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/vector'
+#  Last modified 2022-08-25 09:19:18.312064773
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+libce.so: src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
-# @ := src/celib/asm.o
+# @ := libce.so
 # automatic
-# * := src/celib/asm
+ 
+# * := 
 # automatic
-# < := src/celib/asm.c
+# < := src/celib/alloc.o
 # automatic
-# + := src/celib/asm.c
+# + := src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
 # automatic
 # % := 
 # automatic
-# ^ := src/celib/asm.c
+# ^ := src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
 # automatic
-# ? := src/celib/asm.c
+# ? := src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
 # automatic
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=2/15=13%
-#  recipe to execute (from 'Makefile', line 14):
-	${CC} -c ${CFLAGS} -o $@ $<
-
-libce.so: src/celib/asm.o src/celib/collections.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-08-24 09:14:41.476432047
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 11):
 	${CC} ${CFLAGS} -shared -o $@ ${OBJ}
 
@@ -309,31 +524,75 @@ install: libce.so
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 17):
 	cp ${BIN} ${INSTALL}/lib/${BIN}
-	cp $
-	mkdir ${INSTALL}/include/celib
+	mkdir -p ${INSTALL}/include/celib
 	cp $(wildcard src/celib/*.h) ${INSTALL}/include/celib
 	cp src/celib.h ${INSTALL}/include
+
+# Not a target:
+src/celib/alloc.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 10:00:39.73463996
+#  File has been updated.
+#  Successfully updated.
+
+src/celib/simd.o: src/celib/simd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/simd'
+#  Last modified 2022-08-25 09:19:18.112064768
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
+# Not a target:
+src/celib/regex.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 22:31:58.459755146
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/celib/threadpool.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-24 09:59:07.916637336
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
+src/celib/channel.o: src/celib/channel.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/celib/channel'
+#  Last modified 2022-08-25 09:19:17.578064752
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	${CC} -c ${CFLAGS} -o $@ $<
+
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/38=0%
+# Load=44/1024=4%, Rehash=0, Collisions=8/133=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 32 / storage = 311 B / avg = 9 B
+# strcache buffers: 1 (0) / strings = 129 / storage = 1615 B / avg = 12 B
+# current buf: size = 8162 B / used = 1615 B / count = 129 / avg = 12 B
  
-# current buf: size = 8162 B / used = 311 B / count = 32 / avg = 9 B
 
-# strcache performance: lookups = 57 / hit rate = 43%
+# strcache performance: lookups = 170 / hit rate = 24%
 # hash-table stats:
-# Load=32/8192=0%, Rehash=0, Collisions=0/57=0%
-# Finished Make data base on Wed Aug 24 09:48:37 2022
+# Load=129/8192=2%, Rehash=0, Collisions=0/170=0%
+# Finished Make data base on Thu Aug 25 13:54:22 2022
 
  

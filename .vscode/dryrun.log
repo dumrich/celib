@@ -1,12 +1,9 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/chabi/Code/celib'
-clang -c -std=c17 -g -O2 -Wall -Wextra -I./src -o src/celib/asm.o src/celib/asm.c
-clang -c -std=c17 -g -O2 -Wall -Wextra -I./src -o src/celib/collections.o src/celib/collections.c
-clang -std=c17 -g -O2 -Wall -Wextra -I./src -shared -o libce.so src/celib/asm.o src/celib/collections.o
+gcc -std=c17 -g -O2 -Wall -Wextra -I./src -shared -o libce.so src/celib/alloc.o src/celib/asm.o src/celib/channel.o src/celib/collections.o src/celib/crypto.o src/celib/date.o src/celib/graph.o src/celib/hashmap.o src/celib/ipc.o src/celib/network.o src/celib/refcount.o src/celib/regex.o src/celib/simd.o src/celib/string.o src/celib/threadpool.o src/celib/tree.o src/celib/vector.o
 cp libce.so /usr/lib/libce.so
-cp $
-mkdir /usr/include/celib
-cp src/celib/asm.h src/celib/collections.h /usr/include/celib
+mkdir -p /usr/include/celib
+cp src/celib/alloc.h src/celib/asm.h src/celib/channel.h src/celib/collections.h src/celib/crypto.h src/celib/date.h src/celib/graph.h src/celib/hashmap.h src/celib/ipc.h src/celib/network.h src/celib/refcount.h src/celib/regex.h src/celib/simd.h src/celib/string.h src/celib/threadpool.h src/celib/tree.h src/celib/vector.h /usr/include/celib
 cp src/celib.h /usr/include
 make: Leaving directory '/home/chabi/Code/celib'
  

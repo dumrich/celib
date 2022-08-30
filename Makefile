@@ -15,15 +15,14 @@ ${BIN}: ${OBJ}
 
 install: ${BIN}
 	cp ${BIN} ${INSTALL}/lib/${BIN}
-	cp $
 
-	mkdir ${INSTALL}/include/celib
+	mkdir -p ${INSTALL}/include/celib
 	cp $(wildcard src/celib/*.h) ${INSTALL}/include/celib
 
 	cp src/celib.h ${INSTALL}/include
 
 linked: ${BIN}
-	${CC} -lce tests/linked_list_test.c -o linked_list_test 
+	${CC} -lce ${CFLAGS} tests/linked_list_test.c -o linked_list_test 
 
 .PHONY: clean
 clean:
