@@ -22,7 +22,7 @@ install: ${BIN}
 	cp src/celib.h ${INSTALL}/include
 
 linked: ${BIN}
-	${CC} -lce ${CFLAGS} tests/linked_list_test.c -o linked_list_test 
+	${CC} -lce ${CFLAGS} tests/linked_list_test.c -o bin/linked_list_test 
 
 .PHONY: clean
 clean:
