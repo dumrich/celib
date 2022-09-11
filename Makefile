@@ -24,6 +24,9 @@ install: ${BIN}
 linked: ${BIN}
 	${CC} -lce ${CFLAGS} tests/linked_list_test.c -o bin/linked_list_test 
 
+vector: ${BIN}
+	${CC} -lce ${CFLAGS} tests/vector_test.c -o bin/vector
+
 .PHONY: clean
 clean:
 	rm -rf ${BIN} ${OBJ} 

@@ -41,3 +41,23 @@ Expanded Standard Library for C
 - Networking Primitives
 - Date
 - Crypto
+
+## Order of things I finna make in order of the things I'm gong to makeo
+- Doubly Linked List
+- Vector
+- Stack
+- Queue
+- Trees
+- Graph
+- Implement Standard File Stream functions
+- Quicksort linked list
+- Graph Algorithms
+- Regex Parser
+- Memory Allocator (minus libc)
+- Hashmap
+- String
+- Implement Encryption algorithm
+- P2P IPC Chat
+- P2P Network Chat
+- Multithreaded Web Server
+- C Garbage Collector
